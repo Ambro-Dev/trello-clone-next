@@ -28,7 +28,7 @@ model List {
   title String
   order Int
 
-  boardId String
+  boardId String @db.ObjectId
   board   Board  @relation(fields: [boardId], references: [id], onDelete: Cascade)
 
   cards Card[]
@@ -45,7 +45,7 @@ model Card {
   order       Int
   description String? @db.String
 
-  listId String
+  listId String @db.ObjectId
   list   List   @relation(fields: [listId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
